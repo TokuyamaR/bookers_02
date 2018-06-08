@@ -1,0 +1,90 @@
+<body class="post-login-body">
+  <div class="user-show-wrapper">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-3 user-info left-bar">
+                <div class="user-container">
+                    <div class="user-title">
+                      <h1>User Info</h1>
+                    </div>
+                    <% if @user.image_name %>
+                      <div class="user-image">
+                        <%= attachment_image_tag @user, :image_name, :fill, 150, 150, format: 'jpeg' %>
+                      </div>
+                      <% else %>
+                      <div class="user-image">
+                        <%= image_tag "/bookers_02_images/noimage_user.jpg",:size => "150x150"%>
+                      </div>
+                      <% end %>
+                    <table class="table">
+                      <tbody>
+                        <tr></tr>
+                        <tr class="user-name">
+                            <th><h4>Name:</h4></th>
+                            <th><%= @user.name %></th>
+                        </tr>
+                        <tr class="user-introduction">
+                          <th><h4>Introduction:</h4></th>
+                          <th><%= @user.introduction %></th>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <% if @user.id == current_user.id %>
+                        <%= link_to edit_user_path, class: "btn btn-default btn-block" do %>
+                        <i class="glyphicon glyphicon-wrench">Edit</i>
+                        <% end %>
+
+                        <div class="posts-new">
+                            <div class="user-title">
+                                <h1>Post New Books</h1>
+                            </div>
+                            <%= form_for(@post) do |f| %>
+                            <div class="book-title">
+                                <h4>Title</h4>
+                                <%= f.text_field :title %>
+                            </div>
+                            <div class="book-about">
+                                <h4>Opinion</h4>
+                                <%= f.text_area :body %>
+                            </div>
+                            <%= button_tag :type => "submit", :class => "btn btn-default btn-block" do %>
+                            <i class="glyphicon glyphicon-pencil">Post</i>
+                            <% end %>
+                            <% end %>
+                        </div>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="user-title">
+                    <h1>Books</h1>
+                </div>
+            		<table class="table table-striped">
+            			  <thead>
+            				    <tr>
+            					  <th class="col-lg-3">Title</th>
+            					  <th class="col-lg-6">Opinion</th>
+            				    </tr>
+            			  </thead>
+            			  <% @posts.each do |post| %>
+            			  <tbody link="black">
+            				  <% if @user.id == current_user.id %>
+                        <tr>
+            					  <td><%= link_to post.title, post_path(post.id),:style=>"color:orange;" %></td>
+            					  <td><%= post.body %></td>
+            				    </tr>
+                      <% else %>
+                        <tr>
+                        <td><%= post.title %></td>
+                        <td><%= post.body %></td>
+                        </tr>
+                      <% end %>
+            			  </tbody>
+            			  <% end %>
+            		</table>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>

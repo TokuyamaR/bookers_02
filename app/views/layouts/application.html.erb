@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bookers</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+        <span class="sr-only">メニュー</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"></a>
+    </div>
+
+    <div id="gnavi" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
+        <%if user_signed_in? %>
+          <li><%= link_to "ホーム", user_path(current_user.id) %></li>
+          <li><%= link_to "user一覧", user_index_path(current_user.id) %></li>
+          <li><%= link_to "book一覧", posts_path(current_user.id) %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "トップ", top_path %></li>
+          <li><%= link_to "アバウト", about_path %></li>
+          <li><%= link_to "サインアップ", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+　</nav>
+
+    <% if flash[:notice] %>
+      <div class="container">
+        <div class="flash alert alert-success">
+          <%= flash[:notice] %>
+        </div>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

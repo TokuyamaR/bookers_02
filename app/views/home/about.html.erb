@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="pre-login.scss">
+		<title>About</title>
+	</head>
+	<body>
+		<div class="top-body">
+			<div class="top-wrapper">
+				<div class="top-container">
+					<h1 class="top-title">What's Bookers?</h1>
+					<p class="top-text"><strong>Bookers</strong>では、さまざまな書籍に関するあなたの意見や印象を<br>共有し交換することができます</p>
+					<button type="button" class="btn btn-success btn-block"><%= link_to "Sign up", new_user_registration_path,:style=>"color:white;" %></button>
+					<button type="button" class="btn btn-info btn-block"><%= link_to "Log in", user_session_path,:style=>"color:white;" %></button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

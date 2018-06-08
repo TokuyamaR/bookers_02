@@ -1,0 +1,44 @@
+<body class="post-login-body">
+	<div class="user-edit-wrapper">
+		<div class="container">
+		    <div class="row">
+		        <div class="col-lg-3 user-info left-bar">
+			        <div class="edit-title">
+			    	    <h1>編集画面</h1>
+				        <div class="edit-form">
+				    	    <%= form_for(@user) do |f| %>
+							<% if @user.errors.any? %>
+							  <div id="error_explanation" class="alert alert-danger">
+							    <ul>
+							      <% @user.errors.full_messages.each do |message| %>
+							        <li><%= message %></li>
+							      <% end %>
+							    </ul>
+							  </div>
+							<% end %>
+							<div class="user-name field">
+							    <%= f.label :name %><br>
+							    <%= f.text_field :name %>
+							</div>
+							<div class="user-image field">
+							    <%= f.label :image_name %><br>
+							    <%= f.attachment_field :image_name %>
+							</div>
+							<div class="field">
+							    <%= f.label :introduction %><br>
+							    <%= f.text_field :introduction %>
+							</div>
+							<%= button_tag :type => "submit", :class => "btn btn-default btn-block" do %>
+				            <i class="glyphicon glyphicon-upload">Update</i>
+				            <% end %>
+					  		<% end %>
+					  		<div class="from-edit-links">
+							<%= link_to "戻る", user_path(current_user.id),:style=>"color:orange;" %>
+							</div>
+					    </div>
+					</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+</body>

@@ -1,0 +1,14 @@
+.post-login-body {
+	height: 1000px;
+	background: url("postlogin_background.jpg") no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.user-show-wrapper, .user-index-wrapper, .user-edit-wrapper, .post-show-wrapper, .post-index-wrapper, .post-edit-wrapper {
+	width:92%;
+	height:100%;
+	font-family: Helvetica, Arial, sans-serif;
+	background: rgba(255,255,255,0.7);
+	margin: 0 auto;
+}

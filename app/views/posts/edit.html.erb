@@ -1,0 +1,37 @@
+<body class="post-login-body">
+	<div class="post-edit-wrapper">
+		<div class="container">
+		    <div class="row">
+		        <div class="col-lg-3 user-info left-bar">
+					<div class="edit-container">
+					<h1 class="edit-title">編集画面</h1>
+						<%= form_for(@post) do |f| %>
+							<% if @post.errors.any? %>
+							  <div id="error_explanation" class="alert alert-danger">
+							    <ul>
+							      <% @post.errors.full_messages.each do |message| %>
+							        <li><%= message %></li>
+							      <% end %>
+							    </ul>
+							  </div>
+							<% end %>
+							<div class="book-title">
+								<h4>書籍名</h4>
+								<%= f.text_field :title %>
+							</div>
+							<div class="book-about">
+								<h4>書評（本文）</h4>
+								<%= f.text_area :body %>
+							</div>
+							<%= f.submit '更新' %>
+						<% end %>
+						<div class="from-edit-links">
+							<%= link_to "詳細に戻る", post_path(@post.id),:style=>"color:orange;" %>|
+							<%= link_to "一覧に戻る", posts_path,:style=>"color:orange;" %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>

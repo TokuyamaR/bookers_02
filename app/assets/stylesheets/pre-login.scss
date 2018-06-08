@@ -1,0 +1,46 @@
+.top-body, .sign-up-wrapper, .sign-in-wrapper {
+	height: 1000px;
+	background: url("/bookers_02_images/top_background2.jpg") no-repeat;
+	background-size: cover;
+	background-position: center center;
+}
+
+.top-container, .sign-up-container, .sign-in-container{
+	padding:150px 0;
+	font-family: Helvetica, Arial, sans-serif;
+	height: 100%;
+	background: rgba(255,255,255,0.7)
+}
+
+.sign-up-container, .sign-in-container {
+	width:92%;
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.top-wrapper {
+	width:92%;
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.top-container {
+	padding:150px 0;
+	font-family: Helvetica, Arial, sans-serif;
+	height: 100%;
+	background: rgba(255,255,255,0.7)
+}
+.top-title, .sign-up-title, .sign-in-title{
+	font-size: 50px;
+	padding: 20px;
+}
+
+.top-text {
+	font-size: 30px;
+}
+
+.field {
+	padding-bottom: 10px;
+}

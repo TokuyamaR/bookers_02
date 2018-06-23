@@ -3,10 +3,9 @@
     <div class="sign-in-title">Log in</div>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
 
     <div class="field">

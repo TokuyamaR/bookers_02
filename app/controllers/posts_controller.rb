@@ -18,6 +18,8 @@ class PostsController < ApplicationController
       flash[:notice] = "Your post has been completed successfully!"
 	    redirect_to post_path(@post.id)
     else
+      @user = User.find(current_user.id)
+      @posts = Post.where(user_id: @user.id)
       render "posts/index"
     end
   end
